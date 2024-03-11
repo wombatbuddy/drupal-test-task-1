@@ -4,3 +4,12 @@ server_general.create_node:
     _controller: '\Drupal\server_general\Controller\CreateNodeController'
   requirements:
     _permission: 'access content'
+
+server_general.display_current_date:
+  path: 'my-first-page'
+  defaults:
+    _controller: '\Drupal\server_general\Controller\DisplayCurrentDateController'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: TRUE
