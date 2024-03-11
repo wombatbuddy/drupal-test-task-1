@@ -8,6 +8,20 @@
 use Drupal\node\NodeInterface;
 
 /**
+ * Implements hook_ENTITY_TYPE_presave() for node.
+ *
+ * Add the current date to the title of the node of the Article content type.
+ */
+function server_general_node_presave(NodeInterface $node) {
+  if ($node->getType() === 'article') {
+    $timestamp = \Drupal::service('datetime.time')->getRequestTime();
+    $current_date = \Drupal::service('date.formatter')->format($timestamp, 'custom', 'd.m.Y');
+    $title = t('@date - My first article', ['@date' => $current_date]);
+    $node->set('title', $title);
+  }
+}
+
+/**
  * Implements hook_ENTITY_TYPE_delete() for node.
  *
  * Remove nid from the ThirdPartySetting of the Page content type.
