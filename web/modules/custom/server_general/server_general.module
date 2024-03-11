@@ -22,6 +22,23 @@ function server_general_node_presave(NodeInterface $node) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for node templates.
+ *
+ * If the node was created by the CreateNodeController, then attach to it the
+ * JS library for displaying the current date and time.
+ */
+function server_general_preprocess_node(&$variables) {
+  $nid = $variables['node']->id();
+  /** @var \Drupal\node\NodeTypeInterface $nodeType */
+  $nodeType = \Drupal::service('entity_type.manager')->getStorage('node_type')->load('page');
+  $nids = $nodeType->getThirdPartySetting('server_general', 'nids_with_attached_js', []);
+
+  if (in_array($nid, $nids)) {
+    $variables['#attached']['library'][] = 'server_general/server_general.display_current_date_and_time';
+  }
+}
+
+/**
  * Implements hook_ENTITY_TYPE_delete() for node.
  *
  * Remove nid from the ThirdPartySetting of the Page content type.

@@ -1,0 +1,9 @@
+server_general.display_current_date_and_time:
+  css:
+    theme:
+      css/server_general.display_current_date_and_time.css: {}
+  js:
+    js/server_general.display_current_date_and_time.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
