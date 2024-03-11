@@ -1,0 +1,6 @@
+server_general.create_node:
+  path: '/create-node'
+  defaults:
+    _controller: '\Drupal\server_general\Controller\CreateNodeController'
+  requirements:
+    _permission: 'access content'

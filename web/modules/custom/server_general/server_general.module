@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Server General module.
+ */
+
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_delete() for node.
+ *
+ * Remove nid from the ThirdPartySetting of the Page content type.
+ */
+function server_general_node_delete(NodeInterface $node) {
+  /** @var \Drupal\node\NodeTypeInterface $nodeType */
+  $nodeType = \Drupal::service('entity_type.manager')->getStorage('node_type')->load('page');
+  $nids = $nodeType->getThirdPartySetting('server_general', 'nids_with_attached_js');
+  unset($nids[$node->id()]);
+  $nodeType->setThirdPartySetting('server_general', 'nids_with_attached_js', $nids);
+  $nodeType->save();
+}
