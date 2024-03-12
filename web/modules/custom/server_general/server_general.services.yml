@@ -1,0 +1,10 @@
+services:
+  access_check.front_page:
+    class: Drupal\server_general\Access\FrontPageAccessCheck
+    tags:
+      - { name: access_check }
+
+  server_general.route_subscriber:
+    class: Drupal\server_general\EventSubscriber\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
