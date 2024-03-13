@@ -1,5 +1,5 @@
 admin_toolbar_links.toolbar:
-  version: 'VERSION'
+  version: VERSION
   css:
     theme:
       css/admin_toolbar_links.icons.css: {}

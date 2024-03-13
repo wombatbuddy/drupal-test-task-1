@@ -1,4 +1,5 @@
 server_general.display_current_date_and_time:
+  version: VERSION
   css:
     theme:
       css/server_general.display_current_date_and_time.css: {}
