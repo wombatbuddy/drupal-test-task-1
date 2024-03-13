@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Admin toolbar links module.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for toolbar templates.
+ *
+ * Attach the library for styling toolbar links (adding icons, etc.).
+ */
+function admin_toolbar_links_preprocess_toolbar(&$variables) {
+  $variables['#attached']['library'][] = 'admin_toolbar_links/admin_toolbar_links.toolbar';
+}

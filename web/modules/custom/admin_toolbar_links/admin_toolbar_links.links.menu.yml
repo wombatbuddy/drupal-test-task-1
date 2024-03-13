@@ -1,0 +1,8 @@
+admin_toolbar_links.node_add_page:
+  title: 'Add Basic page'
+  description: 'Link to the form for creating a note of the "Basic page" content type.'
+  parent: system.admin
+  route_name: node.add
+  route_parameters:
+    node_type: page
+  weight: 3

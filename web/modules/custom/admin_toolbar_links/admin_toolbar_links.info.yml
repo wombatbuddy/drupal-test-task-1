@@ -1,0 +1,5 @@
+name: 'Admin toolbar links'
+type: module
+description: 'Add the link to the node page creation form to the admin toolbar.'
+package: server
+core_version_requirement: ^10

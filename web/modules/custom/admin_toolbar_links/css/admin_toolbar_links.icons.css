@@ -1,0 +1,6 @@
+/**
+ * Main menu icons.
+ */
+.toolbar-icon-admin-toolbar-links-node-add-page:before {
+  background-image: url(../images/icons/create-page.svg);
+}
