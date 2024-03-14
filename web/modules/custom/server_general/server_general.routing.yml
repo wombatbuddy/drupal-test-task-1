@@ -13,3 +13,11 @@ server_general.display_current_date:
     _permission: 'access content'
   options:
     no_cache: TRUE
+
+server_general.ajax_form_example:
+  path: '/ajax-form-example'
+  defaults:
+    _title: 'Ajax form example'
+    _form: 'Drupal\server_general\Form\ExampleAjaxForm'
+  requirements:
+    _permission: 'access content'
