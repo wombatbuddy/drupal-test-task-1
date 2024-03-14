@@ -8,3 +8,9 @@ services:
     class: Drupal\server_general\EventSubscriber\RouteSubscriber
     tags:
       - { name: event_subscriber }
+
+  server_general.twig_extension:
+    class: Drupal\server_general\ServerGeneralTwigExtension
+    arguments: ['@config.factory', '@datetime.time', '@date.formatter']
+    tags:
+      - { name: twig.extension }
