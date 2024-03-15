@@ -6,6 +6,8 @@ dependencies:
     - server_general
   theme:
     - claro
+_core:
+  default_config_hash: gYedlLp15mvqejRqnHNwMmLwIoy6pwSwiG1t2nChH40
 id: claro_currentroutename
 theme: claro
 region: highlighted

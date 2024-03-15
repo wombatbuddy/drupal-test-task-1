@@ -6,6 +6,8 @@ dependencies:
     - server_general
   theme:
     - olivero
+_core:
+  default_config_hash: FaOEQsa0jCjoONpcpn-0iZpJCXpOhsAT3hTuhlVUTIY
 id: olivero_currentroutename
 theme: olivero
 region: content_above

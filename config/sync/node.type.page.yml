@@ -1,12 +1,7 @@
 uuid: 10b11be1-beb9-4b94-b808-53748d712ed0
 langcode: en
 status: true
-dependencies:
-  module:
-    - server_general
-third_party_settings:
-  server_general:
-    nids_with_attached_js: null
+dependencies: {  }
 _core:
   default_config_hash: KuyA4NHPXcmKAjRtwa0vQc2ZcyrUJy6IlS2TAyMNRbc
 name: 'Basic page'
