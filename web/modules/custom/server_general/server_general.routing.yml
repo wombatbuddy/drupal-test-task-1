@@ -21,3 +21,11 @@ server_general.ajax_form_example:
     _form: 'Drupal\server_general\Form\ExampleAjaxForm'
   requirements:
     _permission: 'access content'
+
+server_general.count_nodes:
+  path: '/node/{bundle}/count'
+  defaults:
+    _controller: '\Drupal\server_general\Controller\CountNodesController'
+    _title_callback: '\Drupal\server_general\Controller\CountNodesController::title'
+  requirements:
+    _permission: 'access content'
