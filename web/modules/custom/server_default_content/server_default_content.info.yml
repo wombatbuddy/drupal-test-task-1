@@ -1,0 +1,14 @@
+name: 'Server Default Content'
+type: module
+description: 'Provides the default content for the site.'
+package: server
+core_version_requirement: ^10
+dependencies:
+  - default_content:default_content
+
+default_content:
+  node:
+    # Nodes to test the controller that counts the number of published nodes.
+    - 0e398636-a8f6-4352-88af-fd33edc1d2b2 # Page 1 (Published)
+    - cd6b6897-bb2c-41c8-8a48-9d0f42122133 # Page 2 (Published)
+    - 1435ff85-1852-4be9-9471-87288a8c20a6 # Page 3 (Unpublished)

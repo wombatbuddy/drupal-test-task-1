@@ -1,0 +1,37 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 0e398636-a8f6-4352-88af-fd33edc1d2b2
+  bundle: page
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Page 1 (Published)'
+  created:
+    -
+      value: 1710499820
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  path:
+    -
+      alias: ''
+      langcode: en
+  body:
+    -
+      value: '<p>The body of the page 1.</p>'
+      format: basic_html
+      summary: ''
