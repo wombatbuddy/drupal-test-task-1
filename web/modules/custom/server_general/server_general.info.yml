@@ -1,5 +1,5 @@
 name: 'Server General'
 type: module
-description: 'General and common functionality'
+description: 'General and common functionality.'
 package: server
 core_version_requirement: ^10
