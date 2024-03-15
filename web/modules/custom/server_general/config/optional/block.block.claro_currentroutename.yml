@@ -1,0 +1,20 @@
+uuid: 00ecc837-679e-41dc-b156-66d836687ba4
+langcode: en
+status: true
+dependencies:
+  module:
+    - server_general
+  theme:
+    - claro
+id: claro_currentroutename
+theme: claro
+region: highlighted
+weight: 0
+provider: null
+plugin: current_route_name
+settings:
+  id: current_route_name
+  label: 'Current route name'
+  label_display: visible
+  provider: server_general
+visibility: {  }

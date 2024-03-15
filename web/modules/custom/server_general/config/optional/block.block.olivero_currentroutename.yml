@@ -1,0 +1,20 @@
+uuid: 971e16fa-9106-4c26-b667-8c9089c20b18
+langcode: en
+status: true
+dependencies:
+  module:
+    - server_general
+  theme:
+    - olivero
+id: olivero_currentroutename
+theme: olivero
+region: content_above
+weight: -7
+provider: null
+plugin: current_route_name
+settings:
+  id: current_route_name
+  label: 'Current route name'
+  label_display: visible
+  provider: server_general
+visibility: {  }
