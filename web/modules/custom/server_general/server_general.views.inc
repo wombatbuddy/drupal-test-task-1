@@ -114,10 +114,6 @@ function server_general_views_data() {
       'id' => 'editors_notes',
     ],
 
-    'sort' => [
-      'id' => 'string',
-    ],
-
     'filter' => [
       'id' => 'string',
     ],
