@@ -4,3 +4,73 @@
  * @file
  * Install, update and uninstall functions for the Server General module.
  */
+
+/**
+ * Implements hook_schema().
+ */
+function server_general_schema() {
+  $schema['server_general_editors_notes'] = [
+    'description' => "Editors' notes",
+    'fields' => [
+      'id' => [
+        'description' => 'Primary Key: Unique ID.',
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'nid' => [
+        'description' => 'The {node}.nid this record affects.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'data' => [
+        'description' => "Editors' notes.",
+        'type' => 'blob',
+        'not null' => FALSE,
+        'size' => 'big',
+      ],
+      'status' => [
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'nid' => ['nid'],
+      'status' => ['status'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ *
+ * For testing purposes, add data to the "server_general_editors_notes" table.
+ */
+function server_general_install($is_syncing): void {
+  $query = \Drupal::database()->insert('server_general_editors_notes');
+
+  $editors_notes = [
+    [
+      'editor_id' => 1,
+      'note' => "Editor's note 1.",
+    ],
+    [
+      'editor_id' => 1,
+      'note' => "Editor's note 2.",
+    ],
+  ];
+
+  $query->fields([
+    'nid' => 1,
+    'data' => serialize($editors_notes),
+    'status' => 1,
+  ]);
+
+  $query->execute();
+}
