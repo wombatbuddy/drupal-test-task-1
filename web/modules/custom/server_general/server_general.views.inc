@@ -125,3 +125,32 @@ function server_general_views_data() {
 
   return $data;
 }
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function server_general_views_data_alter(array &$data) {
+
+  $data['node_field_data']['title_and_date'] = [
+    'title' => t('Title and creation date'),
+    'help' => t('Node title and creation date.'),
+
+    'field' => [
+      'id' => 'title_and_date',
+    ],
+
+    'argument' => [
+      'id' => 'string',
+    ],
+
+    'filter' => [
+      'id' => 'string',
+    ],
+
+    'sort' => [
+      'id' => 'standard',
+    ],
+
+  ];
+
+}
