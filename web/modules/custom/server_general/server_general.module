@@ -82,3 +82,27 @@ function server_general_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
+
+/**
+ * Implements hook_cron().
+ *
+ * Add to the queue articles that were edited 24 hours ago. Then the articles
+ * will be re-saved in the "queue_uniqu/resave_articles" QueueWorker.
+ */
+function server_general_cron(): void {
+  // Create the queue that only accepts unique items. To make this possible we
+  // replaced the core QueueFactory class with the QueueFactory class provided
+  // by the "Queue Unique" module. See the "server_general.services.yml" file.
+  $queue = \Drupal::queue('queue_uniqu/resave_articles');
+  $request_time = \Drupal::time()->getRequestTime();
+
+  $nids = \Drupal::entityQuery('node')
+    ->accessCheck(FALSE)
+    ->condition('type', 'article')
+    ->condition('changed', $request_time - (3600 * 24), '<')
+    ->execute();
+
+  foreach ($nids as $nid) {
+    $queue->createItem(['nid' => intval($nid)]);
+  }
+}
