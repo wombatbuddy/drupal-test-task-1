@@ -3,3 +3,5 @@ type: module
 description: 'General and common functionality.'
 package: server
 core_version_requirement: ^10
+dependencies:
+  - 'queue_unique:queue_unique'
