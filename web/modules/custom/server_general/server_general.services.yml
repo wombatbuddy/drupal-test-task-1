@@ -14,3 +14,10 @@ services:
     arguments: ['@config.factory', '@datetime.time', '@date.formatter']
     tags:
       - { name: twig.extension }
+
+  # Replace the core QueueFactory class with QueueFactory class provided by the "Queue Unique" module.
+  queue:
+    class: Drupal\queue_unique\QueueFactory
+    arguments: [ '@settings' ]
+    calls:
+      - [ setContainer, [ '@service_container' ] ]
