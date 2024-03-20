@@ -1,0 +1,9 @@
+server_general.admin_config:
+  title: 'Server General'
+  route_name: server_general.admin_config
+  parent: system.admin_config
+
+server_general.settings:
+  title: Settings
+  parent: server_general.admin_config
+  route_name: server_general.settings
