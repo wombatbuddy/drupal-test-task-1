@@ -41,15 +41,7 @@ server_general.admin_config:
 server_general.settings:
   path: '/admin/config/server-general/settings'
   defaults:
-    _title: 'Settings'
+    _title: 'Server General settings'
     _form: 'Drupal\server_general\Form\SettingsForm'
-  requirements:
-    _permission: 'administer site configuration'
-
-server_general.test:
-  path: '/admin/config/system/test'
-  defaults:
-    _title: 'Test'
-    _form: 'Drupal\server_general\Form\TestForm'
   requirements:
     _permission: 'administer site configuration'
