@@ -1,0 +1,4 @@
+server_general.settings:
+  title: 'Settings'
+  route_name: server_general.settings
+  base_route: server_general.settings
