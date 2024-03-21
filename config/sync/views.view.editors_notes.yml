@@ -6,6 +6,8 @@ dependencies:
     - node
     - server_general
     - user
+_core:
+  default_config_hash: QJDfKGE-IhP40AqqAH2PTElqCq2xD-qjq1r5jEOf0cI
 id: editors_notes
 label: "Editors' notes"
 module: views

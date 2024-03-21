@@ -6,6 +6,8 @@ dependencies:
     - node
     - server_general
     - user
+_core:
+  default_config_hash: 6JQ5duEAnsjGGxwVbs3dZQwFaIYR8p5lbIbVkYchGac
 id: custom_views_field_handler_demo
 label: 'Demo of the custom Views field handler'
 module: views
