@@ -34,7 +34,7 @@ function server_general_preprocess_node(&$variables) {
   $nids = $nodeType->getThirdPartySetting('server_general', 'nids_with_attached_js', []);
 
   if (in_array($nid, $nids)) {
-    $variables['#attached']['library'][] = 'server_general/server_general.display_current_date_and_time';
+    $variables['#attached']['library'][] = 'server_general/display_current_date_and_time';
   }
 }
 
