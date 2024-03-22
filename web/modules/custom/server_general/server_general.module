@@ -5,7 +5,50 @@
  * Primary module hooks for Server General module.
  */
 
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter() for views_exposed_form.
+ *
+ * Attach the JS library to implement autosubmit for views exposed form. We pass
+ * to the JS the IDs of the exposed filters to creation CSS selectors. We also
+ * pass to the JS the ID of the submit button to create a CSS selector for it.
+ */
+function server_general_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id): void {
+  $view_id = $form_state->getStorage()['view']->id();
+  $display_id = $form_state->getStorage()['display']['id'];
+
+  if ($view_id === 'autosubmit_demo' && $display_id === 'page_1') {
+    $submitButtonID = $form['actions']['submit']['#id'];
+    // Exposed filter IDs for which we need to implement autosubmit.
+    // Since a view can have more than one filter, we declare an array.
+    $exposedFilterIDs = [];
+    // Types of filter elements for which we will implement autosubmit.
+    $supportedFilterTypes = [
+      'select',
+      'radios',
+      'checkboxes',
+    ];
+
+    foreach ($form as $key => $value) {
+      if (str_starts_with($key, '#')) {
+        continue;
+      }
+      if (in_array($value['#type'], $supportedFilterTypes)) {
+        // Replace "_" with "-", remove "." etc.
+        $exposedFilterIDs[] = Html::getId($key);
+      }
+    }
+
+    $form['#attached']['drupalSettings']['serverGeneral']['viewsAutosubmit'] = [
+      'submitButtonID' => $submitButtonID,
+      'exposedFilterIDs' => $exposedFilterIDs,
+    ];
+    $form['#attached']['library'][] = 'server_general/views_autosubmit';
+  }
+}
 
 /**
  * Implements hook_ENTITY_TYPE_presave() for node.
