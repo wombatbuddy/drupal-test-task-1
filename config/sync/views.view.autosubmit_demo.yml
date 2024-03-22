@@ -7,8 +7,11 @@ dependencies:
   module:
     - node
     - user
+  enforced:
+    module:
+      - server_general
 _core:
-  default_config_hash: uZIc1MNlTsI5dxMHKyArIHaFTbEMEq46w5QfsJARZ9M
+  default_config_hash: yIW8_yP0IY5igqx1IBimPBpmEjQdmclX3HuHYkOsyfE
 id: autosubmit_demo
 label: 'Autosubmit demo'
 module: views
