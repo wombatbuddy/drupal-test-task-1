@@ -21,3 +21,7 @@ services:
     arguments: [ '@settings' ]
     calls:
       - [ setContainer, [ '@service_container' ] ]
+
+  server_general.entity_dumper:
+    class: Drupal\server_general\ServerGeneralEntityDumper
+    arguments: ['@entity_type.manager', '@messenger', '@string_translation']
